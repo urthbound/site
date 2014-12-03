@@ -21,34 +21,58 @@
         <script type="text/javascript">
 
             var canvas=document.getElementById('myCanvas');
+
             var context=canvas.getContext('2d');
 
-            context.strokeStyle="#8EE0FA";
-            for (i = 0; i < 50000; i += 11) {
-                context.beginPath();
-                context.moveTo(300, 0);
-                context.lineTo(0, i);
-                context.stroke();
-            };
-            context.strokeStyle="#da1100";
-            for (i = 0; i < 50000; i += 10) {
-                context.beginPath();
-                context.moveTo(0, 0);
-                context.lineTo(500, i);
-                context.stroke();
+            var derp = 0.1
+            var flop = false
+
+            var tick = function() {
+
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                console.log(derp)
+
+                context.strokeStyle="#8EE0FA";
+                for (i = 0; i < 50000; i += (100 + derp)) {
+                    context.beginPath();
+                    context.moveTo(300, 0);
+                    context.lineTo(5, i);
+                    context.stroke();
+                };
+                context.strokeStyle="#da1100";
+                for (i = 0; i < 50000; i += (100 + derp)) {
+                    context.beginPath();
+                    context.moveTo(0, 0);
+                    context.lineTo(canvas.width, i);
+                    context.stroke();
+                };
+
+                if (flop) {
+                    derp -= 1;
+                } else {
+                    derp += 1;
+                }
+                if (derp > 0) { flop = true }
+                if (derp < -90) { flop = false }
+
+                context.strokeStyle="gray";
+                context.strokeText("Rather than words comes the thought of high windows:", 10, 50);
+                context.strokeText("the sun comprehending glass,", 10, 56);
+                context.strokeText("and beyond it, the deep blue air, that shows", 10, 64);
+                context.strokeText("nothing, and is nowhere, and is endless.", 10, 73);
+
+                context.strokeStyle="#FFA500";
+                context.strokeText("Rather than words comes the thought of high windows :", 11, 51);
+                context.strokeText("the sun comprehending glass,", 11, 58);
+                context.strokeText("and beyond it, the deep blue air, that shows", 11, 65);
+                context.strokeText("nothing, and is nowhere, and is endless.", 12, 73);
+
+                requestAnimationFrame(tick);
             };
 
-           context.strokeStyle="gray";
-           context.strokeText("Rather than words comes the thought of high windows:", 10, 50);
-           context.strokeText("the sun comprehending glass,", 10, 56);
-           context.strokeText("and beyond it, the deep blue air, that shows", 10, 64);
-           context.strokeText("nothing, and is nowhere, and is endless.", 10, 73);
 
-           context.strokeStyle="#FFA500";
-           context.strokeText("Rather than words comes the thought of high windows :", 11, 51);
-           context.strokeText("the sun comprehending glass,", 11, 58);
-           context.strokeText("and beyond it, the deep blue air, that shows", 11, 65);
-           context.strokeText("nothing, and is nowhere, and is endless.", 12, 73);
+           tick();
         </script>
     </body>
 </html>
