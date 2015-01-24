@@ -1,0 +1,15 @@
+<!doctype html> 
+
+<script>
+function EvalSound(soundobj) {
+      var thissound=document.getElementById(soundobj);
+        thissound.play();
+}
+</script>
+
+<body>
+    <audio style="display:none" id="fart" src="/assets/fart.mp3" controls preload="auto" autobuffer></audio>
+    <form>
+        <input type="button" value="sploop" onClick="EvalSound('fart')">
+    </form>
+</body>
