@@ -1,4 +1,7 @@
-
 task :default do
+    system 'echo "to act without intention is to invite catastrophy"'
+end
+
+task :sync do
     system 'rsync -r -v ./public aws:~/site'
 end
