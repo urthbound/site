@@ -1,0 +1,4 @@
+
+task :default do
+    system 'rsync -r ./public aws:~/site'
+end
