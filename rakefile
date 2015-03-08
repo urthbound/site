@@ -1,5 +1,5 @@
 task :default do
-    system 'echo "to act without intention is to invite catastrophy"'
+    system 'echo "\nto act without intention is to invite catastrophy\n"'
 end
 
 task :sync do
