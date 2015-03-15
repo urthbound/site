@@ -3,5 +3,5 @@ task :default do
 end
 
 task :sync do
-    system 'rsync -r -v ./public aws:~/site'
+    system 'rsync -r -v ./ aws:~/site'
 end
